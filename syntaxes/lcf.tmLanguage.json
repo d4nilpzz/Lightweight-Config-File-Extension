@@ -1,0 +1,33 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Lightweight Config File",
+	"patterns": [
+    { "name": "comment.line.double-slash", "match": "//.*$" },
+    { "name": "string.quoted.double", "begin": "\"", "end": "\"" },
+    { "name": "constant.numeric", "match": "\\b\\d+\\b" },
+    { "name": "keyword", "match": "\\$" },
+    { "name": "variable.other", "match": "::" }
+  ],
+	"repository": {
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.control.lcf",
+					"match": "\\b(if|while|for|return)\\b"
+				}
+			]
+		},
+		"strings": {
+			"name": "string.quoted.double.lcf",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.lcf",
+					"match": "\\\\."
+				}
+			]
+		}
+	},
+	"scopeName": "source.lcf"
+}

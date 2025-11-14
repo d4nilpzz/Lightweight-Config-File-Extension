@@ -1,0 +1,23 @@
+{
+  "name": "LCF Theme",
+  "type": "dark",
+  "colors": {},
+  "tokenColors": [
+    {
+      "scope": "variable.other.dollar.lcf",
+      "settings": { "foreground": "#A020F0" }   // morado
+    },
+    {
+      "scope": "keyword.operator.double-colon.lcf",
+      "settings": { "foreground": "#FF7F7F" }   // rojo claro
+    },
+    {
+      "scope": "string.quoted.double.lcf",
+      "settings": { "foreground": "#FFFF00" }   // ejemplo: amarillo
+    },
+    {
+      "scope": "comment.line.double-slash.lcf",
+      "settings": { "foreground": "#808080" }   // gris para comentarios
+    }
+  ]
+}

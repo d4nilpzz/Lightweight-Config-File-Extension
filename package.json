@@ -1,0 +1,25 @@
+{
+  "name": "lightweight-config-file-extension",
+  "displayName": "Lightweight Config File Extension",
+  "description": "Is a Lightweight configuration file made for all those aplications than need one of this.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.106.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "lcf",
+      "aliases": ["Lightweight Config File", "lcf"],
+      "extensions": [".lcf"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "lcf",
+      "scopeName": "source.lcf",
+      "path": "./syntaxes/lcf.tmLanguage.json"
+    }]
+  }
+}
