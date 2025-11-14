@@ -9,13 +9,15 @@ function activate(ctx) {
                     const range = document.getWordRangeAtPosition(position, /"([^"]+)"/);
                     if (!range) return;
 
-                    const raw = document.getText(range); // "config:port"
-                    const key = raw.slice(1, -1);       // config:port
+                    const raw = document.getText(range);
+                    let key = raw.slice(1, -1);
 
-                    if (!key.startsWith("config:")) return;
+                    if (key.includes(":")) {
+                        key = key.split(":")[1];
+                    }
 
-                    const value = findValueInLCF(key.split(":")[1]);
-                    if (!value) return;
+                    const value = findDollarValueInLCF(key);
+                    if (!value) return; // solo valores con $
 
                     const md = new vscode.MarkdownString(`**${key}** → \`${value}\``);
                     md.isTrusted = true;
@@ -29,16 +31,14 @@ function activate(ctx) {
 
 function deactivate() {}
 
-
-function findValueInLCF(key) {
+function findDollarValueInLCF(key) {
     const docs = vscode.workspace.textDocuments.filter(d => d.fileName.endsWith(".lcf"));
 
     for (const doc of docs) {
         for (let i = 0; i < doc.lineCount; i++) {
             const line = doc.lineAt(i).text.trim();
 
-            // port>>3000   |   value>>"Hello world"
-            const m = line.match(/^([A-Za-z0-9_]+)\s*>>\s*(.+)$/);
+            const m = line.match(/^\$([A-Za-z0-9_]+)\s*>>\s*(.+)$/);
             if (!m) continue;
 
             const k = m[1];
