@@ -2,28 +2,43 @@
   "name": "lightweight-config-file-extension",
   "displayName": "Lightweight Config File Extension",
   "description": "Is a Lightweight configuration file made for all those aplications than need one of this.",
+  "publisher": "d4nilpzz",
   "repository": {
     "type": "git",
     "url": "https://github.com/d4nilpzz/Lightweight-Config-File-Extension.git"
   },
-  "version": "0.0.1",
+  "license": "GNU General Public License v3.0",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.106.0"
   },
   "categories": [
     "Programming Languages"
   ],
+  "main": "./extension.js",
   "contributes": {
-    "languages": [{
-      "id": "lcf",
-      "aliases": ["Lightweight Config File", "lcf"],
-      "extensions": [".lcf"],
-      "configuration": "./language-configuration.json"
-    }],
-    "grammars": [{
-      "language": "lcf",
-      "scopeName": "source.lcf",
-      "path": "./syntaxes/lcf.tmLanguage.json"
-    }]
+    "languages": [
+      {
+        "id": "lcf",
+        "aliases": [
+          "Lightweight Config File",
+          "lcf"
+        ],
+        "extensions": [
+          ".lcf"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "lcf",
+        "scopeName": "source.lcf",
+        "path": "./syntaxes/lcf.tmLanguage.json"
+      }
+    ]
+  },
+  "devDependencies": {
+    "vscode": "^1.1.37"
   }
 }
